@@ -7,10 +7,11 @@ Besids choosing by hand, users can also upload the model type and their paramete
 
 ## Usage
 The website of the web application is [easyGTR](https://xinning.shinyapps.io/easyGTR/)  
+The original page of easyGTR should be like this:  
+![figure1](https://github.com/luanxinning/Genome-simulator/assets/90717695/de16b2c3-5545-4c70-ac07-faa7beb83f49)  
+If you want to upload the parameters from a file, click "browse" to upload the input file (check the format!) Then click "run".  
+If you want to choose parameters by hand, firstly choose a model and change its parameters. Click "run" to et results
+![figure2](https://github.com/luanxinning/Genome-simulator/assets/90717695/e6ccb4fa-4a50-4988-970f-f0248d20946d)  
 
-
-
-
-
-
-
+## Results
+The results parts are seperated into 4 tabs.
