@@ -6,8 +6,10 @@ In this web application, 7 models (GTR, K80, HYK, TN93, JC69, F81, F84) from GTR
 Besids choosing by hand, users can also upload the model type and their parameters by uploading a file. The format of the file is fixed. Users could find more details of the format in exmple_input.txt
 
 ## Usage
-The website of the web application is  
-[easyGTR](https://xinning.shinyapps.io/easyGTR/)
+The website of the web application is [easyGTR](https://xinning.shinyapps.io/easyGTR/)  
+
+
+
 
 
 
