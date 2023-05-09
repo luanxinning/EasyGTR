@@ -1,0 +1,81 @@
+# This file is used to input different models and their parameters
+# Columns of parameters should be seperated by tabs
+# Delete the hashtag of the parameter_row and value_row before 
+
+
+
+######### GTR model #########
+model	a	b	c
+GTR	1	2	3
+
+
+
+
+######### K80 model #########
+# Alpha is the rate of transition type substitutions
+# Beta is the rate of transversion type substitutions
+
+# model	Alpha	Beta
+# K80	6	2
+
+
+
+
+
+######### HYK model #########
+# Alpha is the rate of transition type substitutions
+# Beta is the rate of transversion type substitutions
+
+# model	Alpha	Beta
+# HYK	10	2
+
+
+
+
+
+######### JC69 model #########
+
+# model
+# JC69
+
+
+######### F81 model #########
+
+# model
+# F81
+
+
+
+
+######### F84 model #########
+# Alpha1 is the rate of pyrimidines transition type substitutions
+# Alpha2 is the rate of purines transition type substitutions
+# Beta is the rate of transversion type substitutions
+
+
+# model	Kappa
+# F84	4
+
+
+
+
+
+
+######### TN93 model #########
+# Alpha1=(1+κ/πY)Beta (πY=πT+πC)
+# Alpha2=(1+κ/πR)Beta (πR=πA+πG)
+
+
+# model	Alpha1	Alpha2	Beta
+# TN93	4	3	2
+
+
+
+
+
+
+
+.
+
+
+	
