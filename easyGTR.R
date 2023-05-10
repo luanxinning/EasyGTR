@@ -1,6 +1,13 @@
 
 # install.packages("shiny")
 # package shiny is used to build interactive web applications (apps) straight from R
+
+# version control
+# R version 4.2.3 (2023-03-15)
+# Platform: x86_64-apple-darwin17.0 (64-bit)
+# Running under: macOS Big Sur 11.7.3
+
+
 library(shiny)
 library('phylosim')
 library(ggplot2)
