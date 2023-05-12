@@ -12,7 +12,7 @@ The original page of easyGTR should be like this:
 
   
 If you want to upload the parameters from a file, choose "upload" in model type firstly. Click "browse" to upload the input file (check the format!) Then click "run".  
-If you want to choose parameters by hand, firstly choose a model and change its parameters. Click "run" to et results.
+If you want to choose parameters by hand, firstly choose a model and change its parameters. Click "run" to get results.  
 ![image](https://github.com/luanxinning/Genome-simulator/assets/90717695/7b1abf78-1cf6-4d33-a217-abafe18966d7)
 
   
@@ -22,5 +22,5 @@ If you want to choose parameters by hand, firstly choose a model and change its 
 
 ## Results
 The results parts are seperated into 6 tabs.
-The result of aligned sequences could be downloaded from *Simulation* tab.
+The result of aligned sequences could be downloaded from *Simulation* tab.  
 ![image](https://github.com/luanxinning/Genome-simulator/assets/90717695/19b1a613-e1c7-4c22-aeb5-4b06dec38dcd)
