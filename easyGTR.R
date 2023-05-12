@@ -152,39 +152,43 @@ server <- function(input, output, session) {
   
   data <-  eventReactive(input$run, {
       
-      
-      if (input$model_type == 'HKY'){
-        p <- HKY(rate.params=list("Alpha"=input$Alpha,"Beta"=input$Beta),
-                 base.freqs=c(4,3,2,1)/10)
+      if (input$model_type != 'upload'){
+        if (input$model_type == 'HKY'){
+          p <- HKY(rate.params=list("Alpha"=input$Alpha,"Beta"=input$Beta),
+                   base.freqs=c(4,3,2,1)/10)
+          
+        }
+        else if (input$model_type == 'K80'){
+          p <- K80(rate.params=list("Alpha"=input$Alpha,"Beta"=input$Beta),
+                   base.freqs=c(4,3,2,1)/10)
+        }
+        else if (input$model_type == 'GTR'){
+          p <- GTR(rate.params=list(
+            'a' = input$a, 'b' = input$b, 'c' = input$c,
+            'd' = input$a, 'e' = input$b, 'f' = input$c
+          ),
+          base.freqs=c(2,2,1,1)/6)
+        }
+        else if (input$model_type == 'TN93'){
+          p <- TN93(rate.params=list("Alpha1"=input$Alpha1,
+                                     "Alpha2"=input$Alpha2,"Beta"=input$Beta),
+                    base.freqs=c(4,3,2,1)/10)
+        }
+        else if (input$model_type == 'JC69'){
+          p <- JC69()
+        }
+        else if (input$model_type == 'F81'){
+          p<-F81(base.freqs=c(1,2,3,4)/10)
+        }
+        else if (input$model_type == 'F84'){
+          p<-F84(rate.params=list("Kappa"=input$Kappa), base.freqs=c(1,2,3,4))
+        }
         
+        length = input$length
+        deletion_rate = input$deletion_rate
+        insertion_rate = input$insertion_rate
+        trees =  input$trees
       }
-      else if (input$model_type == 'K80'){
-        p <- K80(rate.params=list("Alpha"=input$Alpha,"Beta"=input$Beta),
-                 base.freqs=c(4,3,2,1)/10)
-      }
-      else if (input$model_type == 'GTR'){
-        p <- GTR(rate.params=list(
-          'a' = input$a, 'b' = input$b, 'c' = input$c,
-          'd' = input$a, 'e' = input$b, 'f' = input$c
-        ),
-        base.freqs=c(2,2,1,1)/6)
-      }
-      else if (input$model_type == 'TN93'){
-        p <- TN93(rate.params=list("Alpha1"=input$Alpha1,
-                                  "Alpha2"=input$Alpha2,"Beta"=input$Beta),
-                 base.freqs=c(4,3,2,1)/10)
-      }
-      else if (input$model_type == 'JC69'){
-        p <- JC69()
-      }
-      else if (input$model_type == 'F81'){
-        p<-F81(base.freqs=c(1,2,3,4)/10)
-      }
-      else if (input$model_type == 'F84'){
-        p<-F84(rate.params=list("Kappa"=input$Kappa), base.freqs=c(1,2,3,4))
-      }
-      
-      
       
       
       
@@ -226,12 +230,18 @@ server <- function(input, output, session) {
         else if (input$model_type == 'F84'){
           p<-F84(rate.params=list("Kappa"=file$Kappa), base.freqs=c(1,2,3,4))
         }
+        
+        length = file$length
+        deletion_rate = file$deletion_rate
+        insertion_rate = file$insertion_rate
+        trees =  file$trees
+        
       }
       
       
       
       # create a sequence, attach process p
-      s<-NucleotideSequence(length=input$length,processes=list(list(p)))
+      s<-NucleotideSequence(length=length,processes=list(list(p)))
       # sample states
       sampleStates(s)
       # make the first five positions invariable
@@ -243,7 +253,7 @@ server <- function(input, output, session) {
       # construct deletion process object
       # proposing length in range 1:3
       d<-DiscreteDeletor(
-        rate=input$deletion_rate,
+        rate=deletion_rate,
         name="My_Deleletion",
         sizes=c(1:3),
         probs=c(3/6,2/6,1/6)
@@ -258,7 +268,7 @@ server <- function(input, output, session) {
       # construct insertion process object
       # proposing length in range 1:3
       i<-DiscreteInsertor(
-        rate=input$insertion_rate,
+        rate=insertion_rate,
         name="My_insertion",
         sizes=c(1:2),
         probs=c(1/2,1/2),
@@ -271,7 +281,7 @@ server <- function(input, output, session) {
       setInsertionTolerance(s,i,0,11:20)
  
       # create a simulation object
-      sim<-PhyloSim(root.seq=s,phylo=rcoal(input$trees))
+      sim<-PhyloSim(root.seq=s,phylo=rcoal(trees))
       # run simulation
       Simulate(sim)
       
