@@ -60,6 +60,26 @@ parameter_tabs <- tabsetPanel(
   )
 )
 
+ins_del_tabs <- tabsetPanel(
+  id = "ins_del_tabs",
+  tabPanel("Root sequence", 
+           value =  "root",
+           sliderInput("length",  "Length of the root sequence",
+                       min = 1, max = 100, value = 20),
+           
+           sliderInput("trees",  "Number of generated random trees",
+                       min = 1, max = 10, value = 3)
+  ),
+  tabPanel("Insertion and Deletion", 
+           value =  "ins_del",
+           sliderInput("deletion_rate","Rate of deletion",
+                       min = 0, max = 1, value = 1),
+           sliderInput("insertion_rate","Rate of insertion",
+                       min = 0, max = 1, value = 1)
+  ),
+  
+)
+
 # ---- User interface ----
 ui <- fluidPage(
   titlePanel('EasyGTR: A web application to simulate genome by selected type of model'),
@@ -74,17 +94,7 @@ ui <- fluidPage(
       parameter_tabs,
       br(),
       
-      sliderInput("length",  "Length of the root sequence",
-                  min = 1, max = 100, value = 20),
-      
-      sliderInput("trees",  "Number of generated random trees",
-                  min = 1, max = 10, value = 3),
-      br(),
-      
-      sliderInput("deletion_rate","Rate of deletion",
-                  min = 0, max = 1, value = 1),
-      sliderInput("insertion_rate","Rate of insertion",
-                  min = 0, max = 1, value = 1),
+      ins_del_tabs,
       br(),
 
       actionButton("run", "run")),
@@ -127,6 +137,13 @@ server <- function(input, output, session) {
   
   observeEvent(input$model_type,{
     updateTabsetPanel(session,"parameter_tabs",selected = input$model_type)
+  })
+  
+  observeEvent(input$model_type,{
+    if (input$model_type == 'upload'){
+      hideTab('ins_del_tabs','root')
+      hideTab('ins_del_tabs','ins_del')
+    }
   })
   
   #model_type <- reactive(input$model_type)
