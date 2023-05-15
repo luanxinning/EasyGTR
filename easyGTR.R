@@ -111,8 +111,8 @@ ui <- fluidPage(
                            plotOutput("d_plot"),
                            br(),
                            verbatimTextOutput("d_print")),
-                  tabPanel("Insretion", 
-                           helpText("Inerstion tab is similar with 
+                  tabPanel("Insertion", 
+                           helpText("Insertion tab is similar with 
                                     Deletion tab"),
                            plotOutput("i_plot"),
                            br(),
