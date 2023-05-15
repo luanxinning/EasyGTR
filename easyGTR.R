@@ -118,7 +118,7 @@ ui <- fluidPage(
                            br(),
                            verbatimTextOutput("i_print")),
                   tabPanel("Parameters",
-                           helpText("In parameter tab ,this is a rate 
+                           helpText("In parameter tab, there is a rate 
                                     of matrix plot and a plot for 
                                     equilibrium distribution. It also 
                                     has a summary for rate parameters."),
@@ -138,7 +138,7 @@ ui <- fluidPage(
                            verbatimTextOutput("subst_print")),
                   tabPanel("Simulation", 
                            helpText("In the last tab Simulation, there is a large plot
-                                    will colored sites for each sequence. Meanwhile, 
+                                    with colored sites for each sequence. Meanwhile, 
                                     the txt result of aligned sequences could be 
                                     downloaded from Simulation tab."),
                            plotOutput("sim_plot"),
