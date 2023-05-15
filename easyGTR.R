@@ -29,8 +29,8 @@ parameter_tabs <- tabsetPanel(
            sliderInput("Beta", "Beta",
                        min = 1, max = 10, value = 2)
   ),
-  tabPanel("HYK", 
-           value =  "HYK",
+  tabPanel("HKY", 
+           value =  "HKY",
            sliderInput("Alpha",  "Alpha",
                        min = 1, max = 10, value = 10),
            sliderInput("Beta", "Beta",
@@ -87,7 +87,7 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("model_type",
                   label = "Choose a model",
-                  choices = c("GTR", "K80","HYK","TN93",
+                  choices = c("GTR", "K80","HKY","TN93",
                               "JC69","F81","F84","upload"),
                   selected = "GTR"),
       
