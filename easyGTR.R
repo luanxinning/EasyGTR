@@ -85,6 +85,9 @@ ui <- fluidPage(
   titlePanel('EasyGTR: A web application to simulate genome by selected type of model'),
   sidebarLayout(
     sidebarPanel(
+      helpText("The meaning for parameters of each model
+               can be found in example_input.txt file on EasyGTR
+               Github page."),
       selectInput("model_type",
                   label = "Choose a model",
                   choices = c("GTR", "K80","HKY","TN93",
@@ -102,23 +105,42 @@ ui <- fluidPage(
     mainPanel(
       tabsetPanel(type = "tabs",
                   tabPanel("Deletion", 
+                           helpText(" Deletion tab includes a plot for 
+                                    deleltion size of distribution, and
+                                    a detailed summary for deletion."),
                            plotOutput("d_plot"),
                            br(),
                            verbatimTextOutput("d_print")),
                   tabPanel("Insretion", 
+                           helpText("Inerstion tab is similar with 
+                                    Deletion tab"),
                            plotOutput("i_plot"),
                            br(),
                            verbatimTextOutput("i_print")),
-                  tabPanel("Parameters", 
+                  tabPanel("Parameters",
+                           helpText("In parameter tab ,this is a rate 
+                                    of matrix plot and a plot for 
+                                    equilibrium distribution. It also 
+                                    has a summary for rate parameters."),
                            plotOutput("p_plot"),
                            br(),
                            verbatimTextOutput("p_print")),
-                  tabPanel("Site Rates Plot", plotOutput("s_plot")),
+                  tabPanel("Site Rates Plot", 
+                           helpText("Site Rates Plot tab has a plot for 
+                                    total site rate according to their positions"),
+                           plotOutput("s_plot")),
                   tabPanel("Subtitions", 
+                           helpText("A phylogenetic tree is included in 
+                                    Subtition tab"),
+                           
                            plotOutput("subst_plot"),
                            br(),
                            verbatimTextOutput("subst_print")),
                   tabPanel("Simulation", 
+                           helpText("In the last tab Simulation, there is a large plot
+                                    will colored sites for each sequence. Meanwhile, 
+                                    the txt result of aligned sequences could be 
+                                    downloaded from Simulation tab."),
                            plotOutput("sim_plot"),
                            br(),
                            downloadButton("Download", "Download alignment sequences"))
