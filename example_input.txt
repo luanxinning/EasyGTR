@@ -5,8 +5,15 @@
 #
 #
 ######## GTR model #########
-model	a	b	c	length	deletion_rate	insertion_rate	trees
-GTR	1	2	3	20	1	1	3
+# abcdef refers to the rate for different base substitutions
+# PAUP substitution rate matrix     PAML substitution rate matrix
+    A  C  G  T                         T  C  A  G
+# A   -  a  b  c                     T   -  a  b  c
+# C      -  d  e                     C      -  d  e
+# G         -  f=1                   A         -  f=1
+# T            -                     G            -
+model	a	b	c	d	e	f	length	deletion_rate	insertion_rate	trees
+GTR	1	2	3	1	2	3	20	1	1	3
 #
 #
 ####### K80 model #########
