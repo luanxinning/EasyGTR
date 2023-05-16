@@ -8,7 +8,8 @@ If not choosing by hand, users can also upload the model type and their paramete
 ## Usage
 The website of the web application is [easyGTR](https://xinning.shinyapps.io/easyGTR/)    
 The original page of easyGTR should be like this:  
-![image](https://github.com/luanxinning/Genome-simulator/assets/90717695/8fd5b527-fe6e-4f39-9baf-4734b5f2a7ff)
+![image](https://github.com/luanxinning/Genome-simulator/assets/90717695/799552d9-85fd-418d-8059-0875dbbbcaaf)
+  
   
 
 
