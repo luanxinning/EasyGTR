@@ -20,7 +20,10 @@ parameter_tabs <- tabsetPanel(
            value = 'GTR',
            sliderInput("a", "a", min = 1, max = 10, value = 1),
            sliderInput("b", "b", min = 1, max = 10, value = 2),
-           sliderInput("c", "c", min = 1, max = 10, value = 3)
+           sliderInput("c", "c", min = 1, max = 10, value = 3),
+           sliderInput("d", "d", min = 1, max = 10, value = 1),
+           sliderInput("e", "e", min = 1, max = 10, value = 2),
+           sliderInput("f", "f", min = 1, max = 10, value = 3)
   ),
   tabPanel("K80", 
            value =  "K80",
@@ -93,7 +96,7 @@ ui <- fluidPage(
                   label = "Choose a model",
                   choices = c("GTR", "K80","HKY","TN93",
                               "JC69","F81","F84","upload"),
-                  selected = "GTR"),
+                  selected = "K80"),
       
       parameter_tabs,
       br(),
@@ -188,7 +191,7 @@ server <- function(input, output, session) {
         else if (input$model_type == 'GTR'){
           p <- GTR(rate.params=list(
             'a' = input$a, 'b' = input$b, 'c' = input$c,
-            'd' = input$a, 'e' = input$b, 'f' = input$c
+            'd' = input$d, 'e' = input$e, 'f' = input$f
           ),
           base.freqs=c(2,2,1,1)/6)
         }
@@ -240,7 +243,7 @@ server <- function(input, output, session) {
         else if (file$model == 'GTR'){
           p <- GTR(rate.params=list(
             'a' = file$a, 'b' = file$b, 'c' = file$c,
-            'd' = file$a, 'e' = file$b, 'f' = file$c
+            'd' = file$d, 'e' = file$e, 'f' = file$f
           ),
           base.freqs=c(2,2,1,1)/6)
         }
