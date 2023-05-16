@@ -82,7 +82,8 @@ ins_del_tabs <- tabsetPanel(
 
 # ---- User interface ----
 ui <- fluidPage(
-  titlePanel('EasyGTR: A web application to simulate genome by selected type of model'),
+  titlePanel('EasyGTR: A web application to simulate DNA by selected 
+             type of GTR model'),
   sidebarLayout(
     sidebarPanel(
       helpText("The meaning for parameters of each model
