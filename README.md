@@ -1,4 +1,4 @@
-# DNA-simulator: EasyGTR
+# EasyGTR: a small DNA simulator
 This is a web application using 7 models of GTR(general time reversible model) family to simulate genome. The models are GTR, K80, HKY, TN93, JC69, F81 and F84.
 
 ## Description
